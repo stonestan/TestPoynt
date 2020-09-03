@@ -19,6 +19,9 @@ import co.poynt.os.util.StringUtil;
 public class PaymentUtil {
     private Map<String,List<Payment>> stringListMap = new HashMap<>();
 
+
+    private Map<String ,String> stringMap = new HashMap<>();
+
     private static PaymentUtil paymentUtil;
 
     private PaymentUtil(){}
@@ -43,6 +46,14 @@ public class PaymentUtil {
         stringListMap.put(oId,list);
     }
 
+
+
+    public void putPayment(String payment,String oId){
+        stringMap.put(oId,payment);
+    }
+
+
+
     public Payment getPayment(String orID){
         if(!StringUtil.isEmpty(orID)){
             List<Payment> payments = stringListMap.get(orID);
@@ -64,6 +75,12 @@ public class PaymentUtil {
     public void saveAll(){
         Gson gson = new Gson();
         String json= gson.toJson(stringListMap);
+        FileUtil.saveTransactionContent(json);
+    }
+
+    public void saveStringAll(){
+        Gson gson = new Gson();
+        String json= gson.toJson(stringMap);
         FileUtil.saveTransactionContent(json);
     }
 }

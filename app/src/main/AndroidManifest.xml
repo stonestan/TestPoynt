@@ -36,7 +36,15 @@
         <!--</activity>-->
 
 
-        <activity android:name=".TestSaleActivity">
+        <!--<activity android:name=".TestSaleActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <activity android:name=".TestSaleActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
